@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "068D0BFD-5C8C-4A45-842A-BAFFF2846193",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:NanoBee.xcodeproj",
+      "identifier" : "F3F6816F2EE9BF4C00653B51",
+      "name" : "NanoBee"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:NanoBee.xcodeproj",
+        "identifier" : "F3AC6D262EFF04F700D75BC9",
+        "name" : "NanoBeeTests"
+      }
+    }
+  ],
+  "version" : 1
+}
