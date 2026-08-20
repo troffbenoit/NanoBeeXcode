@@ -136,6 +136,28 @@ class SerialManager:
     def disconnect(self) -> None:
         self._stop_event.set()
 
+        current_thread = threading.current_thread()
+
+        read_thread = self._read_thread
+        keepalive_thread = self._keepalive_thread
+
+        if (
+            read_thread is not None
+            and read_thread.is_alive()
+            and read_thread is not current_thread
+        ):
+            read_thread.join(timeout=1.0)
+
+        if (
+            keepalive_thread is not None
+            and keepalive_thread.is_alive()
+            and keepalive_thread is not current_thread
+        ):
+            keepalive_thread.join(timeout=1.0)
+
+        self._read_thread = None
+        self._keepalive_thread = None
+
         port = self.serial_port
         self.serial_port = None
 
@@ -157,7 +179,6 @@ class SerialManager:
 
         if self.connection_callback is not None:
             self.connection_callback(False)
-
     # ---------------------------------------------------------
     # TX
     # ---------------------------------------------------------
