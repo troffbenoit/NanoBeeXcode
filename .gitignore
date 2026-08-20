@@ -8,3 +8,12 @@ build/
 # User-specific Xcode files
 xcuserdata/
 *.xcuserstate
+
+# Linux / Python
+.venv/
+__pycache__/
+*.pyc
+
+# Qt Creator
+.qtcreator/
+*.pyproject.user
